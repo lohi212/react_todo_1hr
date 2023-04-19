@@ -1,10 +1,10 @@
 import React, { useCallback, useContext, useMemo } from "react";
 import { useDrop } from "react-dnd";
-import { tasksContext } from ".";
+import { TasksContext } from ".";
 import TaskItem from "./TaskItem";
 
 const TasksList = ({ tasks, title }) => {
-  const { handleReorder } = useContext(tasksContext);
+  const { handleReorder } = useContext(TasksContext);
 
   const handleDrop = (item) => {
     handleReorder(item, { label: title, idx: 0 });

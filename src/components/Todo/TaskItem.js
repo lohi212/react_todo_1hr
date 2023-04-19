@@ -1,9 +1,9 @@
 import React, { useContext, useMemo } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { tasksContext } from ".";
+import { TasksContext } from ".";
 
 const TaskItem = ({ idx, task, title, tasks }) => {
-  const { handleReorder } = useContext(tasksContext);
+  const { handleReorder } = useContext(TasksContext);
 
   const handleDrop = (item) => {
     handleReorder(item, { label: title, idx });

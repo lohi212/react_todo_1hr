@@ -3,7 +3,7 @@ import CreatePhase from "./CreatePhase";
 import PhasesList from "./PhasesList";
 import "./styles.css";
 
-export const tasksContext = createContext(null);
+export const TasksContext = createContext(null);
 
 const Todo = () => {
   const [allTasks, setAllTasks] = useState({
@@ -26,9 +26,7 @@ const Todo = () => {
     (src, dest) => {
       const newTasks = JSON.parse(JSON.stringify(allTasks));
       newTasks[src.label].splice(src.idx, 1);
-
       newTasks[dest.label].splice(dest.idx, 0, src.task);
-      console.log(newTasks[dest.label]);
 
       setAllTasks(newTasks);
     },
@@ -37,10 +35,10 @@ const Todo = () => {
 
   return (
     <div style={{ height: "100%" }}>
-      <tasksContext.Provider value={{ handleReorder }}>
+      <TasksContext.Provider value={{ handleReorder }}>
         <CreatePhase handlePhase={handlePhaseCreation} />
         <PhasesList phases={allTasks} handleAddTask={handleAddTask} />
-      </tasksContext.Provider>
+      </TasksContext.Provider>
     </div>
   );
 };
