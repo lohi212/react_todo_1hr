@@ -27,7 +27,6 @@ const AddComment = ({ pid }) => {
         }}
       />
       <button onClick={handleReply}>Reply</button>
-      <button>Delete</button>
     </div>
   );
 };

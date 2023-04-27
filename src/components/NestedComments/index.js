@@ -25,12 +25,35 @@ const NestedComments = () => {
       });
   };
 
+  const handleDeleteComment = (comment = {}) => {
+    const deletedIds = [comment.id, ...removeChildren(comment.children)];
+    const newComments = { ...comments };
+    deletedIds.forEach((id) => {
+      delete newComments[id];
+    });
+    setComments(newComments);
+  };
+
+  const removeChildren = (childrenIds = []) => {
+    let newChildrenIds = [...childrenIds];
+    if (!newChildrenIds.length) return [];
+
+    Object.values(comments).forEach((comment) => {
+      if (childrenIds.includes(comment.id))
+        newChildrenIds = [
+          ...newChildrenIds,
+          ...removeChildren(comment.children),
+        ];
+    });
+    return newChildrenIds;
+  };
+
   return (
     <CommentsContext.Provider
-      value={{ mainComments: comments, handleAddComment }}
+      value={{ mainComments: comments, handleAddComment, handleDeleteComment }}
     >
       <AddComment pid="root" />
-      <Comments comments={comments} pid="root" />
+      <Comments pid="root" />
     </CommentsContext.Provider>
   );
 };

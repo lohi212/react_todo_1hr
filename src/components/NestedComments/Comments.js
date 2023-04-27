@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CommentsContext } from ".";
+import Comment from "./Comment";
 
-const Comments = ({ comments, pid }) => {
-  const filteredComments = Object.values(comments).filter((e) => e.pid === pid);
+const Comments = ({ pid }) => {
+  const { mainComments } = useContext(CommentsContext);
+  const filteredComments = Object.values(mainComments).filter(
+    (e) => e.pid === pid
+  );
   // .filter()
   return (
     <div className="m-10">
       {filteredComments.map((comment) => (
-        <div>{JSON.stringify(comment)}</div>
+        <Comment comment={comment} />
       ))}
     </div>
   );
