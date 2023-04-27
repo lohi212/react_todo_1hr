@@ -1,4 +1,5 @@
 import "./App.css";
+import Carousel from "./components/Carousel";
 import NestedComments from "./components/NestedComments";
 import TicTacToe from "./components/TicTacToe";
 import Todo from "./components/Todo";
@@ -8,7 +9,8 @@ function App() {
     <div className="root-container">
       {/* <TicTacToe /> */}
       {/* <Todo /> */}
-      <NestedComments />
+      {/* <NestedComments /> */}
+      <Carousel />
     </div>
   );
 }

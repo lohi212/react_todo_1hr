@@ -1,0 +1,33 @@
+.overflow {
+    /* overflow: hidden; */
+}
+
+.container {
+    height: 400px;
+    width: 400px;
+    transition: all 0.5s;
+}
+
+.carousel-container {
+    height: 400px;
+    width: 400px;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.prev-button { 
+    top: 50%;
+    z-index: 9;
+}
+
+.next-button {
+    top: 50%;
+    right: 0;
+    z-index: 9;
+}
+
+.relative {
+    position: relative;
+}
