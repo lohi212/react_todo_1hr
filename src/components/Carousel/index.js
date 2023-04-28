@@ -3,6 +3,13 @@ import Actions from "./ActionButtons";
 import { CAROUSEL_ITEMS } from "./utils";
 import "./styles.css";
 
+// const carousels = document.querySelectorAll(".container");
+// Traverse carousels and translateX(indx-curr);
+/* <div>
+    <Buttons />
+    <CarouselItems />
+  </div> */
+
 const Carousel = () => {
   return (
     <div className="relative overflow carousel-container">
