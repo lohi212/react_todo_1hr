@@ -7,6 +7,24 @@ export const CommentsContext = createContext(null);
 
 const NestedComments = () => {
   const [comments, setComments] = useState({});
+  // Comments Structure
+  // {
+  //   id1: {
+  //     id: id1,
+  //     pid: root,
+  //     children: [id3]
+  //   },
+  //   id2: {
+  //     id: id2,
+  //     pid: root,
+  //     children: []
+  //   },
+  //   id3: {
+  //     id: id3,
+  //     pid: id1,
+  //     children: []
+  //   },
+  // }
 
   const handleAddComment = (comment) => {
     if (comment.pid !== "root")
